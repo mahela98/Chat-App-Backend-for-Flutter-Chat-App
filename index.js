@@ -18,7 +18,7 @@ io.on("connection", (socket) => {
     console.log("connected");
     console.log(socket.id, "has joined");
 
-    socket.on("/test",()=>{
+    socket.on("/test",(msg)=>{
         console.log(msg);
     })
 });
