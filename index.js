@@ -16,6 +16,11 @@ app.get('/', (req, res) => {
 
 io.on("connection", (socket) => {
     console.log("connected");
+    console.log(socket.id, "has joined");
+
+    socket.on("/test",()=>{
+        console.log(msg);
+    })
 });
 
 server.listen(port, () => {
