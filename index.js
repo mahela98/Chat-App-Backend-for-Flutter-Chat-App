@@ -10,6 +10,10 @@ var io = require("socket.io")(server);
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send("Node Server is running !!")
+})
+
 io.on("connection", (socket) => {
     console.log("connected");
 });
