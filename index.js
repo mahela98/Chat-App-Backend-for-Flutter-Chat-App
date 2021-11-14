@@ -26,6 +26,11 @@ io.on("connection", (socket) => {
     });
     socket.on("message", (message) => {
         console.log(message);
+        let targetId = message.targetId;
+        if (clients[targetId]) {
+            clients[targetId].emit("message", message);
+        }
+
     });
 });
 
