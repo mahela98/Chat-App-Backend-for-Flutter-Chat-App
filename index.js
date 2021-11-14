@@ -10,6 +10,8 @@ var io = require("socket.io")(server);
 app.use(express.json());
 app.use(cors());
 
+var clients = {};
+
 app.get('/', (req, res) => {
     res.send("Node Server is running !!")
 })
@@ -18,9 +20,13 @@ io.on("connection", (socket) => {
     console.log("connected");
     console.log(socket.id, "has joined");
 
-    socket.on("/test",(msg)=>{
-        console.log(msg);
-    })
+    socket.on("signin", (id) => {
+        console.log(id);
+        clients[id] = socket;
+    });
+    socket.on("message", (message) => {
+        console.log(message);
+    });
 });
 
 server.listen(port, () => {
