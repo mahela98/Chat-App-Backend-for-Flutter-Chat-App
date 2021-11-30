@@ -11,6 +11,8 @@ app.use(express.json());
 app.use(cors());
 
 var clients = {};
+const routes = require("./routes");
+app.use("/routes", routes);
 
 app.get('/', (req, res) => {
     res.send("Node Server is running !!")
@@ -35,5 +37,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(port, () => {
-    console.log("server started");
+    console.log("server started on port : " + port);
 });
