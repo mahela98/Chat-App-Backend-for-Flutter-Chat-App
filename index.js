@@ -13,6 +13,7 @@ app.use(cors());
 var clients = {};
 const routes = require("./routes");
 app.use("/routes", routes);
+app.use("/uploadimages",express.static("uploadImages"));
 
 app.get('/', (req, res) => {
     res.send("Node Server is running !!")
