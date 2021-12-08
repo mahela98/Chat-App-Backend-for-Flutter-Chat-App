@@ -32,9 +32,11 @@ db.mongoose
     process.exit();
   });
 
-app.get('/', (req, res) => {
-    res.send("Node Server is running !!")
-});
+require("./routes/user.routes")(app);
+
+// app.get('/', (req, res) => {
+//     res.send("Node Server is running !!")
+// });
 
 io.on("connection", (socket) => {
     console.log("connected");
