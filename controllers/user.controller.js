@@ -128,15 +128,16 @@ exports.deleteAll = (req, res) => {
   };
 
 // Find all published Users
-// exports.findByPhone = (req, res) => {
-//     User.find({ published: true })
-//       .then(data => {
-//         res.send(data);
-//       })
-//       .catch(err => {
-//         res.status(500).send({
-//           message:
-//             err.message || "Some error occurred while retrieving users."
-//         });
-//       });
-//   };
+exports.findByEmail = (req, res) => {
+  const email = req.params.email;
+    User.find({ email: email })
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving users."
+        });
+      });
+  };
