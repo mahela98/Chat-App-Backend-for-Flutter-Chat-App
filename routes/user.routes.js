@@ -13,7 +13,7 @@ module.exports = app => {
     router.get("/:email", users.findByEmail);
 
     // Retrieve a single Tutorial with id
-    router.get("/:id", users.findOne);
+    // router.get("/:id", users.findOne);
 
     // Update a Tutorial with id
     router.put("/:id", users.update);
@@ -22,7 +22,7 @@ module.exports = app => {
     router.delete("/:id", users.delete);
 
     // Create a new Tutorial
-    router.delete("/", users.deleteAll);
+    // router.delete("/", users.deleteAll);
 
 
 //api route
